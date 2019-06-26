@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Task3_1Logic;
 using UserInterface;
+using System.Reflection;
 
 namespace Task3_1
 {
@@ -42,8 +43,12 @@ namespace Task3_1
 
             List<string> optionList = new List<string> { "Exit" };
             List<Action> methodList = new List<Action>();
+            methodList.Add(() => Plus(10));
+            methodList.Add(() => Task3_1Logic.FundingNumberClass.LeftSum(_int, 3));
 
-            MainMenu.Start("MainMenu", optionList, methodList, optionList);
+            
+
+            MainMenu.Start("MainMenu", methodList);
 
             Console.ReadLine();
         }

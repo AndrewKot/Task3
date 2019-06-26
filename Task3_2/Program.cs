@@ -137,7 +137,7 @@ namespace Task3_2
         /// <param name="array"></param>
         /// <param name="comparer"></param>
         /// <returns></returns>
-        public static T[] SorterArray<T>(T[] array, /*Dictionary<N,T> list,*/ IComparer<T> comparer)
+        public static T[] SorterArray<T>(T[] array, IComparer<T> comparer)
         {
             T[] temp = new T[array.Length];
             

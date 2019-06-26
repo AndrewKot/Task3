@@ -33,8 +33,13 @@ namespace UserInterface
             return listOfCommands;
         }
 
-        public static void Start(string nameMenu, List<string> optionList, List<Action> listOfMethods, List<string> listOfCommands)
+        public static void Start(string nameMenu, /*List<string> optionList,*/ List<Action> listOfMethods/*, List<string> listOfCommands*/)
         {
+            Console.WriteLine(nameMenu + "\n");
+            for (int i = 0; i < listOfMethods.Count; i++)
+            {
+                Console.WriteLine(i + ". " + listOfMethods[i].Method.Name);
+            }
             string commandString = null;
             do
             {
@@ -45,10 +50,13 @@ namespace UserInterface
                 catch (Exception)
                 {
                     Console.WriteLine("incorrect value");
+                    Console.ReadLine();
+                    Console.SetCursorPosition(0, Console.CursorTop - 1);
+                    ClearCurrentConsoleLine();
                 }
-                for (int i = 0; i < listOfCommands.Count; i++)
+                for (int i = 0; i < listOfMethods.Count; i++)
                 {
-                    if (commandString == listOfCommands[i])
+                    if (commandString == listOfMethods[i].Method.Name)
                     {
                         try
                         {
@@ -61,7 +69,16 @@ namespace UserInterface
                         
                     }
                 }
-            } while (commandString != listOfCommands[0]);
+            } while (commandString != "Exit");
+            Console.Clear();
+        }
+
+        public static void ClearCurrentConsoleLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
     }
 }
