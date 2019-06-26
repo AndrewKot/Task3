@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task3_1Logic;
+using UserInterface;
 
 namespace Task3_1
 {
@@ -33,10 +34,16 @@ namespace Task3_1
             List<Action> a = new List<Action> { };
             a.Add(Console.WriteLine);
 
+            Console.WriteLine();
             int f = 1;
             Console.WriteLine(f);
             f = Plus(f);
             Console.WriteLine(f);
+
+            List<string> optionList = new List<string> { "Exit" };
+            List<Action> methodList = new List<Action>();
+
+            MainMenu.Start("MainMenu", optionList, methodList, optionList);
 
             Console.ReadLine();
         }

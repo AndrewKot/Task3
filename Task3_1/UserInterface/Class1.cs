@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserInterface
 {
-    public static class MenuMeny
+    public static class MainMenu
     {
         public static string nameMenu = "MainMenu";
 
@@ -50,7 +50,15 @@ namespace UserInterface
                 {
                     if (commandString == listOfCommands[i])
                     {
-                        listOfMethods[i]();
+                        try
+                        {
+                            listOfMethods[i]();
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("null"); ;
+                        }
+                        
                     }
                 }
             } while (commandString != listOfCommands[0]);

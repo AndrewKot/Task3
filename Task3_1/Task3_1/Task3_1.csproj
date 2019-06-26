@@ -53,6 +53,10 @@
       <Project>{8baafd09-d0bb-465a-8d0c-e7f65b35a196}</Project>
       <Name>Task3_1Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserInterface\UserInterface.csproj">
+      <Project>{172cf375-d7a4-47cb-9855-6706246a73b7}</Project>
+      <Name>UserInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

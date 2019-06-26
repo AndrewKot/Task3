@@ -77,9 +77,151 @@ namespace Task3_2
 
             }
 
+            ///
+
+            string str1 = "abdkfwADREF";
+            string str2 = "bgfjeFJEO";
+            Console.WriteLine();
+            Console.WriteLine(str(str1, str2));
+
+            char[] charArray = { 'a', 'A', 'b', 'A', 'a', 'C', 'c' };
+            int[] intArray = { 1, 4, 5, 3, 2, 4, 4, 6, 8, 4, 4, 2, 1 };
+
+            Console.WriteLine();
+            for (int i = 0; i < SorterArray(charArray, new CharComparable()).Length; i++)
+            {
+                Console.Write(SorterArray(charArray, new CharComparable())[i] + " ");
+            }
+            
+
+            Console.WriteLine();
+            for (int i = 0; i < SorterArray(intArray, new IntComparable()).Length; i++)
+            {
+                Console.Write(SorterArray(intArray, new IntComparable())[i] + " ");
+            }
             
 
             Console.ReadLine();
+        }
+
+        public static string str(string str1, string str2)
+        {
+            string temp;
+
+            temp = str1 + str2;
+            List<char> tempList = new List<char>();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempList.Add(temp[i]);
+            }
+
+            tempList.Sort();
+            List<char> tempList1 = tempList.Distinct().ToList();
+            temp = null;
+
+            for (int i = 0; i < tempList1.Count; i++)
+            {
+                temp += tempList1[i];
+            }
+
+            
+
+            return temp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="N"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="comparer"></param>
+        /// <returns></returns>
+        public static T[] SorterArray<T>(T[] array, /*Dictionary<N,T> list,*/ IComparer<T> comparer)
+        {
+            T[] temp = new T[array.Length];
+            
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = array[i];
+            }
+
+            Array.Sort(temp, comparer);
+            T[] filteredTemp = temp.Distinct().ToArray();
+
+            return filteredTemp;
+        }
+    }
+
+    public class AA: IComparable<AA>
+    {
+        string userString;
+
+        private char[] userChar;
+
+        public string UserString
+        {
+            set
+            {
+                userString = value;
+                userChar = new char[userString.Length];
+                for (int i = 0; i < userString.Length; i++)
+                {
+                    userChar[i] = userString[i];
+                }
+            }
+            get
+            {
+                return userString;
+            }
+        }
+        public int CompareTo(AA other)
+        {
+            if(this.UserString == other.UserString)
+            {
+
+            }
+            throw new NotImplementedException();
+        }
+    }
+
+    public class CharComparable : IComparer<char>
+    {
+        public int Compare(char x, char y)
+        {
+            if(x > y)
+            {
+                return 1;
+            }
+            else if(x < y)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+
+    public class IntComparable : IComparer<int>
+    {
+
+        public int Compare(int x, int y)
+        {
+            if (x > y)
+            {
+                return 1;
+            }
+            else if (x < y)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
         }
     }
 }
