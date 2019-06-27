@@ -23,7 +23,7 @@ namespace Task3_3
             Console.WriteLine(Convert.ToString(a, 2));
             Console.WriteLine(Convert.ToString(b, 2));
 
-            Console.WriteLine(Insertion(a, b, 0, 0));
+            Console.WriteLine(Insertion(a, b, 30, 30));
 
             Console.WriteLine();
 
@@ -73,7 +73,7 @@ namespace Task3_3
             }
             for (int n = i; n < j + 1; n++)
             {
-                finalTemp[n] = tempIJ[n];
+                finalTemp[n] = tempIJ[i - n];
             }
             for (int n = j + 1; n < 32; n++)
             {
