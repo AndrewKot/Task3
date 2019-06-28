@@ -10,12 +10,15 @@ namespace Task3_1Logic
     {
         public static int Number(List<int> list)
         {
+            if (list.Count < 3)
+            {
+                return -1;
+            }
             bool flag = false;
             int i = 1;
             int number = -1;
             while (i != list.Count - 2)
             {
-                Console.WriteLine("LeftSum = {0}, RightSum = {1}", LeftSum(list, i), RightSum(list, i));
                 if (LeftSum(list, i) == RightSum(list, i))
                 {
                     flag = true;

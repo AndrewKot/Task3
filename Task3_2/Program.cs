@@ -129,6 +129,12 @@ namespace Task3_2
             return temp;
         }
 
+        public static T GetMergedObject<T>(T obj1, T obj2)
+        {
+            T temp = obj1 + obj2;
+            return temp;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -150,38 +156,6 @@ namespace Task3_2
             T[] filteredTemp = temp.Distinct().ToArray();
 
             return filteredTemp;
-        }
-    }
-
-    public class AA: IComparable<AA>
-    {
-        string userString;
-
-        private char[] userChar;
-
-        public string UserString
-        {
-            set
-            {
-                userString = value;
-                userChar = new char[userString.Length];
-                for (int i = 0; i < userString.Length; i++)
-                {
-                    userChar[i] = userString[i];
-                }
-            }
-            get
-            {
-                return userString;
-            }
-        }
-        public int CompareTo(AA other)
-        {
-            if(this.UserString == other.UserString)
-            {
-
-            }
-            throw new NotImplementedException();
         }
     }
 
