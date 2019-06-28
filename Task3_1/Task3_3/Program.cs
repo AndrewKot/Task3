@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using Task3_3Logic;
 
 namespace Task3_3
 {
@@ -11,97 +12,59 @@ namespace Task3_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("dorou");
+            int[] data = null;
+            string[] tempString;
+            string masterString;
 
-            int a, b;
-
-            a = Convert.ToInt32(Console.ReadLine());
-            b = Convert.ToInt32(Console.ReadLine());
-
-            string sa, sb;
-
-            Console.WriteLine(Convert.ToString(a, 2));
-            Console.WriteLine(Convert.ToString(b, 2));
-
-            Console.WriteLine(Insertion(a, b, 30, 30));
-
-            Console.WriteLine();
-
-            var g = BitArray(Insertion(a, b, 0, 0));
-            for (int i = 0; i < g.Length; i++)
+            do
             {
-                Console.Write(Convert.ToString(g[i]));
-            }
-            
-            
-            //
+                Console.Clear();
+                Console.WriteLine("'exit' - exit from the program" +
+                    "\n'input' - input data");
+                
+                if (data != null)
+                {
+                    try
+                    {
+                        Console.WriteLine(Task3_3Logic.Class1.Insertion(data[0], data[1], data[2], data[3]));
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("error input, press 'Enter' to continue, plese");
+                        Console.ReadLine();
+                    }
+                    
+                }
 
-            //byte[] aByte = BitConverter.GetBytes(a);
-            //Array.Reverse(aByte);
-            //byte[] bByte = BitConverter.GetBytes(b);
-            //Console.WriteLine();
+                masterString = Console.ReadLine();
 
-            //for (int i = 0; i < aByte.Length; i++)
-            //{
-            //    Console.Write(aByte[i]);
-            //}
-            //Console.WriteLine();
-            //Console.WriteLine(Convert.ToString(aByte));
-            //Console.WriteLine(Convert.ToString(bByte));
-
-            Console.ReadLine();
-        }
-
-        public static int Insertion(int a, int b, int i, int j)
-        {
-            int temp = 0;
-            int[] tempA, tempB, tempIJ, finalTemp;
-
-            tempA = BitArray(a);
-            tempB = BitArray(b);
-
-            tempIJ = new int[j - i + 1];
-            for (int m = 0; m < j - i + 1; m++)
-            {
-                tempIJ[m] = tempB[m];
-            }
-
-            finalTemp = new int[32];
-            for (int n = 0; n < i; n++)
-            {
-                finalTemp[n] = tempA[n];
-            }
-            for (int n = i; n < j + 1; n++)
-            {
-                finalTemp[n] = tempIJ[i - n];
-            }
-            for (int n = j + 1; n < 32; n++)
-            {
-                finalTemp[n] = tempA[n];
-            }
-
-            int power = 1;
-            for (int n = 0; n < 32; n++)
-            {
-                temp += finalTemp[n] * power;
-                power *= 2;
-            }
-
-            return temp;
-
-        }
-
-        public static int[] BitArray(int value)
-        {
-            int[] temp = new int[32];
-            BitArray tempBit = new BitArray(new int[] { value });
-            
-            for (int i = 0; i < tempBit.Length; i++)
-            {
-                temp[i] = Convert.ToInt32(tempBit[i]);
-            }
-
-            return temp;
+                switch (masterString)
+                {
+                    case "input":
+                        {
+                            Console.WriteLine("input number1, number2, initial index and final index in format 'number1/number2/inialIndex/finalIndex'");
+                            try
+                            {
+                                data = null;
+                                tempString = Console.ReadLine().Split('/');
+                                data = new int[tempString.Length];
+                                for (int i = 0; i < tempString.Length; i++)
+                                {
+                                    data[i] = Convert.ToInt32(tempString[i]);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("error input");
+                                Console.ReadLine();
+                                data = null;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            } while (masterString != "exit");
         }
     }
 }

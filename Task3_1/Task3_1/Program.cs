@@ -18,15 +18,17 @@ namespace Task3_1
             Random random = new Random();
             string masterString;
             string[] tempArray;
+
             do
             {
                 Console.Clear();
                 Console.WriteLine("'random' - input random array\n'exit' - exit from the program" +
-                    "\n'userArray' - input user array\n'search - find element'");
+                    "\n'userArray' - input user array\n'search' - find element");
                 for (int i = 0; i < list.Count; i++)
                 {
                     Console.Write(list[i] + " ");
                 }
+                Console.WriteLine();
                 Console.WriteLine();
                 masterString = Console.ReadLine();
                 switch(masterString)

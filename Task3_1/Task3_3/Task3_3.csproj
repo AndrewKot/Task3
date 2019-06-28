@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Task3_3Logic\Task3_3Logic.csproj">
+      <Project>{fd633883-3fec-49f9-9604-6735c1462f05}</Project>
+      <Name>Task3_3Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
