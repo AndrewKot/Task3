@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task3_1Logic
 {
-    static public class FundingNumberClass
+    static public class FindingNumberClass
     {
         public static int Number(List<int> list)
         {

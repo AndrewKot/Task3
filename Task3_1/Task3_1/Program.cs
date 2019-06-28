@@ -79,7 +79,7 @@ namespace Task3_1
                         {
                             try
                             {
-                                Console.WriteLine(Task3_1Logic.FundingNumberClass.Number(list));
+                                Console.WriteLine(Task3_1Logic.FindingNumberClass.Number(list));
                                 Console.ReadLine();
                             }
                             catch (Exception)
